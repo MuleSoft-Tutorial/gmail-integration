@@ -3,7 +3,7 @@ This is to integration gmail via MuleSoft
 
 start here: https://docs.mulesoft.com/email-connector/1.3/email-examples
 
-# Learnings:
+## Learnings:
 1. understanding of email protocols at high level:
 
   a. SMTP : simple mail transfer protocol
