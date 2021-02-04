@@ -1,6 +1,10 @@
 # gmail-integration
 This is to integration gmail via MuleSoft
 
+### This project does:
+  1. send email 
+  2. logs the new email received in Inbox
+
 start here: https://docs.mulesoft.com/email-connector/1.3/email-examples
 
 ## Learnings:
