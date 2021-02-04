@@ -32,6 +32,12 @@ start here: https://docs.mulesoft.com/email-connector/1.3/email-examples
  If true, enables the use of the STARTTLS command (if supported by the server) to switch the connection to a TLS-protected connection before issuing any login commands. If the server does not support STARTTLS, the connection continues without the use of TLS; see the mail.smtp.starttls.required property to fail if STARTTLS isn't supported. Note that an appropriate trust store must configured so that the client will trust the server's certificate. Defaults to false.
  
  check  more on here: https://javaee.github.io/javamail/docs/api/com/sun/mail/smtp/package-summary.html
+   
+     
+       
+         
+           
+            
  
  
  
@@ -42,5 +48,5 @@ start here: https://docs.mulesoft.com/email-connector/1.3/email-examples
  
  
  
- **Note: change properties.yaml with valid email details.**
+ **Note: change properties.yaml with valid email details before testing.**
 
