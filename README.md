@@ -35,5 +35,12 @@ start here: https://docs.mulesoft.com/email-connector/1.3/email-examples
  
  
  
- Note: change properties.yaml with valid email details.
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ **Note: change properties.yaml with valid email details.**
 
