@@ -1,8 +1,10 @@
 # gmail-integration
 This is to integration gmail via MuleSoft
 
+start here: https://docs.mulesoft.com/email-connector/1.3/email-examples
+
 # Learnings:
-1. understandig of email protocols at high level:
+1. understanding of email protocols at high level:
 
 a. SMTP : simple mail transfer protocol
   this is for sending emails.
@@ -20,9 +22,14 @@ c. POP3 : post office protocol
  for testing purposes, check the "inSecure" button if you do not have certs to configure. 
  
  4. interestingly also learnt that we need to enable properties in connnector seetings, advance tab. 
+ 
   
  mail.smtp.starttls.enable : true
  mail.imap.starttls.enable : true
+ 
+ If true, enables the use of the STARTTLS command (if supported by the server) to switch the connection to a TLS-protected connection before issuing any login commands. If the server does not support STARTTLS, the connection continues without the use of TLS; see the mail.smtp.starttls.required property to fail if STARTTLS isn't supported. Note that an appropriate trust store must configured so that the client will trust the server's certificate. Defaults to false.
+ 
+ check  more on here: https://javaee.github.io/javamail/docs/api/com/sun/mail/smtp/package-summary.html
  
  
 
