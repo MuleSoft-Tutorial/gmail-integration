@@ -22,10 +22,11 @@ start here: https://docs.mulesoft.com/email-connector/1.3/email-examples
  for testing purposes, check the "inSecure" button if you do not have certs to configure. 
  
  4. interestingly also learnt that we need to enable properties in connnector seetings, advance tab. 
- 
-  
+   
  mail.smtp.starttls.enable : true
  mail.imap.starttls.enable : true
+ 
+![screenShot] (C:\Users\kthotapalli\Karthik\my\myProjects\images\email_Connector.png)
  
  If true, enables the use of the STARTTLS command (if supported by the server) to switch the connection to a TLS-protected connection before issuing any login commands. If the server does not support STARTTLS, the connection continues without the use of TLS; see the mail.smtp.starttls.required property to fail if STARTTLS isn't supported. Note that an appropriate trust store must configured so that the client will trust the server's certificate. Defaults to false.
  
