@@ -23,8 +23,9 @@ start here: https://docs.mulesoft.com/email-connector/1.3/email-examples
  
  4. interestingly also learnt that we need to enable properties in connnector seetings, advance tab. 
    
- mail.smtp.starttls.enable : true
- mail.imap.starttls.enable : true
+ *mail.smtp.starttls.enable : true*
+ 
+ *mail.imap.starttls.enable : true*
  
 ![screenShot](https://user-images.githubusercontent.com/49124895/106854876-07474a80-66f7-11eb-8073-aa8ea5375ed7.png)
  
