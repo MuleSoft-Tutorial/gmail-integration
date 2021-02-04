@@ -34,4 +34,6 @@ start here: https://docs.mulesoft.com/email-connector/1.3/email-examples
  check  more on here: https://javaee.github.io/javamail/docs/api/com/sun/mail/smtp/package-summary.html
  
  
+ 
+ Note: change properties.yaml with valid email details.
 
