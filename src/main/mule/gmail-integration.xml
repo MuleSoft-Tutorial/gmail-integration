@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:email="http://www.mulesoft.org/schema/mule/email" xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/email http://www.mulesoft.org/schema/mule/email/current/mule-email.xsd">
+	
+	
+	
+	<flow name="sendEmail" doc:id="fd61f9c7-253b-4602-9a20-62a4e8b2bc34" >
+		<http:listener doc:name="Listener" doc:id="924f1af9-ef22-4c75-aeb3-714d519fadf6" config-ref="HTTP_Listener_config" path="/gmail/sendEmail"/>
+		<logger level="INFO" doc:name="Logger" doc:id="24c2cb33-7021-4d5f-ade6-50b2b9e8805d" message="*** req received ***"/>
+		<email:send doc:name="Send email" doc:id="53c58655-9953-4696-8445-4476830ccc02" config-ref="Email_SMTP" fromAddress="${email.from}" subject="${email.subject}">
+			<email:to-addresses >
+				<email:to-address value="${email.to}" />
+			</email:to-addresses>
+			<email:body contentType="text/plain" encoding="UTF-8" />
+		</email:send>
+		<logger level="INFO" doc:name="Logger" doc:id="7fd0f367-27bf-43ad-a2ae-c27d6aa81103" message="** email sent ***"/>
+	</flow>
+	<flow name="readNewEmail" doc:id="1515a347-a288-403b-9c87-5dbf04782f96" >
+		<email:listener-imap doc:name="On New Email - IMAP" doc:id="ebee62c8-343c-4dc9-8572-2057996f2a94" config-ref="Email_IMAP" folder="Inbox" attachmentNamingStrategy="NAME">
+			<reconnect />
+			<scheduling-strategy >
+				<fixed-frequency frequency="10" startDelay="1" timeUnit="SECONDS"/>
+			</scheduling-strategy>
+			<email:imap-matcher />
+		</email:listener-imap>
+		<foreach doc:name="For Each" doc:id="2629e6c4-6996-4939-a1a7-a19a15b4c4dc" collection="payload">
+			<logger level="INFO" doc:name="Logger" doc:id="b9aac6a0-5c14-4d9e-bb00-3d21a0e10d07" message='#["*** new email : ***" ++ vars.counter]' />
+			<logger level="INFO" doc:name="Logger" doc:id="fc6cd50e-0083-4115-bc00-f816ac2558da" message="#[payload]" />
+		</foreach>
+	</flow>
+</mule>

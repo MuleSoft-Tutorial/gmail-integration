@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:tls="http://www.mulesoft.org/schema/mule/tls"
+	xmlns:email="http://www.mulesoft.org/schema/mule/email"
+	xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="
+http://www.mulesoft.org/schema/mule/email http://www.mulesoft.org/schema/mule/email/current/mule-email.xsd 
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/tls http://www.mulesoft.org/schema/mule/tls/current/mule-tls.xsd">
+	
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="a7a758c7-8c2e-4fea-9282-543ecfab0549" >
+		<http:listener-connection host="0.0.0.0" port="8081" />
+	</http:listener-config>
+	
+	<email:smtp-config name="Email_SMTP" doc:name="Email SMTP" doc:id="9d62e058-af89-4230-80c6-904362255750" from="rambabu@gmail.com" >
+		<email:smtp-connection host="${smtp.host}" port="${smtp.port}" user="${emailuser}" password="${emailpwd}" timeoutUnit="MINUTES" connectionTimeout="1" readTimeout="2" writeTimeout="2" >
+			<reconnection >
+				<reconnect />
+			</reconnection>
+			<email:properties >
+				<email:property key="mail.smtp.starttls.enable" value="true" />
+			</email:properties>
+		</email:smtp-connection>
+	</email:smtp-config>
+
+<email:imap-config name="Email_IMAP" doc:name="Email IMAP" doc:id="47876783-ab57-48a8-aa29-3b1218dc2ab6" >
+		<email:imaps-connection host="${imap.host}" user="${emailuser}" password="${emailpwd}" >
+			<tls:context >
+				<tls:trust-store insecure="true" />
+			</tls:context>
+		</email:imaps-connection>
+	
+</email:imap-config>
+	
+	<configuration-properties doc:name="Configuration properties" doc:id="2c5231f3-3870-4eb6-8c0f-1d20978abdc8" file="properties.yaml" />
+	
+</mule>

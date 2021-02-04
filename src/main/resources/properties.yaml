@@ -1,0 +1,19 @@
+email:
+  from: "fromgmail@gmail.com"
+  to: "togmail@gmail.com"
+  cc: "ccgmail@gmail.com"
+  bcc: "bccgmail@gmail.com"
+  subject: "Hi there from me"
+  contentType: "text/plain"
+
+smtp:
+  host: "smtp.gmail.com"
+  port: "587"
+
+imap:
+  host: "imap.gmail.com"
+  port: "993"
+  
+emailuser: "mygmail@gmail.com"
+emailpwd: "094dfvkl2$@#jhldf"
+
